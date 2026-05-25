@@ -7,34 +7,55 @@ public class Student {
 
     public Student(int id, String name, double gpa) {
         // TODO validate fields and assign them
+        if(id<= 0){
+            throw new IllegalArgumentException("nope");
+        }
+        if(gpa< 0.0 || gpa > 4.0) {
+            throw new IllegalArgumentException("nope");
+        }
+        if( name == null || name.trim().isEmpty() ){
+            throw new IllegalArgumentException("nope");
+        }
+        this.gpa = gpa;
+        this.name = name;
+        this.id = id;
     }
 
     public int getId() {
         // TODO
-        return 0;
+
+
+        return id;
     }
 
     public String getName() {
         // TODO
-        return null;
+        return name;
     }
 
     public double getGpa() {
         // TODO
-        return 0.0;
+        return gpa;
     }
 
     public void setName(String name) {
         // TODO validate and assign
+       if(name == null || name.trim().isEmpty()){
+           throw new IllegalArgumentException("no");
+       }
     }
 
     public void setGpa(double gpa) {
         // TODO validate and assign
+        if(gpa < 0.0 || gpa > 4.0){
+            throw new IllegalArgumentException("nope");
+        }
     }
 
     @Override
     public String toString() {
         // TODO
-        return "";
+        return "Student id: "+ id + ", name"+ name +"/" + "gpa="
+                + gpa;
     }
 }
